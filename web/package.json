@@ -1,12 +1,16 @@
 {
   "name": "web",
   "version": "0.0.1",
-  "description": "",
+  "description": "Interface web para a aplicacao Feira da Fruta",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "author": "Rodrigo Andrade <data@rodrigoandrade.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigodata/feiradafruta"
+  },
   "license": "ISC",
   "dependencies": {
     "mongodb": "3.1.13",
