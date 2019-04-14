@@ -14,8 +14,19 @@ services:
     env_file:
       - ./pedido/pedido.env
     environment:
-      - DB_HOST=mongodb://db/feiradafruta    
-  
+      - DB_HOST=mongodb://db/feiradafruta
+
+  credito:
+    build: './credito'
+    ports:
+      - "3002:3000"
+    depends_on:
+      - db
+    env_file:
+      - ./credito/credito.env
+    environment:
+      - DB_HOST=mongodb://db/feiradafruta
+
   db:
     image: mongo:latest
     ports:
@@ -29,4 +40,5 @@ services:
       - ./default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - web
-      - pedido     
+      - pedido
+      - credito

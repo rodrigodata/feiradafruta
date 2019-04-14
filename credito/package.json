@@ -1,10 +1,14 @@
 {
-  "name": "pedidos",
+  "name": "credito",
   "version": "0.0.1",
-  "description": "Responsavel pelos pedidos efetuados na aplicacao Feira da Fruta",
+  "description": "Responsavel por estabelecer se comprador possui credito",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigodata/feiradafruta.git"
   },
   "keywords": [
     "fruta",
