@@ -4,6 +4,9 @@ const Mongoose = require("mongoose");
 /* Importação Models */
 const Pedido = Mongoose.model("Pedido");
 
+/* Importação de Servicos */
+const SNS = require("../../services/SNS");
+
 /* Controller responsável pela criação de novos pedidos. */
 exports.criar = function(req, res, next) {
   let body = req.body;
@@ -17,9 +20,12 @@ exports.criar = function(req, res, next) {
   pedido
     .save()
     .then(pedidoCriado => {
-      return res.status(201).send({
-        mensagem: "Pedido Criado com Sucesso!",
-        _item: pedidoCriado
+      SNS.publicar(pedidoCriado).then(function(_publicacao) {
+        return res.status(201).send({
+          mensagem: "Pedido Criado com Sucesso!",
+          _item: pedidoCriado,
+          _solicitacao: _publicacao
+        });
       });
     })
     .catch(next);
