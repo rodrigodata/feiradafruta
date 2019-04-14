@@ -16,11 +16,6 @@ const CriarPedidoSchema = Joi.object({
     .required(),
   cliente: Joi.string()
     .lowercase()
-    .required(),
-  status: Joi.number()
-    .integer()
-    .min(0)
-    .max(5)
     .required()
 });
 
