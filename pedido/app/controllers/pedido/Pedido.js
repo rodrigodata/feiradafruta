@@ -4,7 +4,7 @@ const Mongoose = require("mongoose");
 /* Importação Models */
 const Pedido = Mongoose.model("Pedido");
 
-/* Controller responsável pela criação de novos pedidos*/
+/* Controller responsável pela criação de novos pedidos. */
 exports.criar = function(req, res, next) {
   let body = req.body;
   let pedido = new Pedido();
