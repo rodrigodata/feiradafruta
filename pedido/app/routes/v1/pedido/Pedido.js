@@ -1,7 +1,7 @@
 /* Importação de dependencias */
 const router = require("express").Router();
 
-/* Importação de middlewares */
+/* Importação de middlewares. */
 const SchemaValidation = require("../../../middlewares/SchemaValidation");
 
 /* Importação Controllers */
