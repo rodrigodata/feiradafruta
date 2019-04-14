@@ -11,8 +11,10 @@ services:
       - "3001:3000"
     depends_on:
       - db
+    env_file:
+      - ./pedido/pedido.env
     environment:
-      - DB_HOST=mongodb://db/feiradafruta
+      - DB_HOST=mongodb://db/feiradafruta    
   
   db:
     image: mongo:latest
