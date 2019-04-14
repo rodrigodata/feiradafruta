@@ -1,12 +1,16 @@
 {
   "name": "pedidos",
   "version": "0.0.1",
-  "description": "",
+  "description": "Responsavel pelos pedidos efetuados na aplicacao Feira da Fruta",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "author": "Rodrigo Andrade <data@rodrigoandrade.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigodata/feiradafruta"
+  },
   "license": "ISC",
   "dependencies": {
     "mongodb": "3.1.13",
