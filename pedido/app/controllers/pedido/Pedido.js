@@ -7,6 +7,9 @@ const Pedido = Mongoose.model("Pedido");
 /* Importação de Servicos */
 const SNS = require("../../services/SNS");
 
+/* Importação Constants */
+const AppConstants = require("../../constants/App");
+
 /* Controller responsável pela criação de novos pedidos. */
 exports.criar = function(req, res, next) {
   let body = req.body;
@@ -15,18 +18,20 @@ exports.criar = function(req, res, next) {
   pedido.descricao = body.descricao;
   pedido.cpf = body.cpf;
   pedido.cliente = body.cliente;
-  pedido.status = body.status;
+  pedido.status = AppConstants.STATUS_PEDIDO.PROGRAMADO;
 
   pedido
     .save()
     .then(pedidoCriado => {
-      SNS.publicar(pedidoCriado).then(function(_publicacao) {
-        return res.status(201).send({
-          mensagem: "Pedido Criado com Sucesso!",
-          _item: pedidoCriado,
-          _solicitacao: _publicacao
-        });
-      });
+      SNS.publicar(pedidoCriado)
+        .then(function(_publicacao) {
+          return res.status(201).send({
+            mensagem: "Pedido Criado com Sucesso!",
+            _item: pedidoCriado,
+            _solicitacao: _publicacao
+          });
+        })
+        .catch(next);
     })
     .catch(next);
 };
