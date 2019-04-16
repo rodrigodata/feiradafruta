@@ -6,20 +6,21 @@ const CreditoSchema = new Mongoose.Schema({
     type: String,
     required: [true, "não pode ser vazio"],
     maxlength: 11,
-    minlength: 11
-  },
-  de: {
-    type: String,
-    required: [true, "não pode ser vazio"]
-  },
-  ate: {
-    type: String,
-    required: [true, "não pode ser vazio"]
+    minlength: 11,
+    unique: true
   },
   valor: {
     type: Number,
     required: [true, "não pode ser vazio"]
   }
 });
+
+CreditoSchema.methods.formataRespostaJSON = function(compradorPossuiCredito) {
+  return {
+    cpf: this.cpf,
+    valor: this.valor,
+    possuiCredito: compradorPossuiCredito ? "S" : "N"
+  };
+};
 
 Mongoose.model("Credito", CreditoSchema);
