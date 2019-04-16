@@ -10,6 +10,6 @@ const CreditoController = require("../../../controllers/credito/Credito");
 router
   .route("/credito")
   .get(SchemaValidation(true), CreditoController.buscar)
-  .post();
+  .post(SchemaValidation(true), CreditoController.criar);
 
 module.exports = router;

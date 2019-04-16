@@ -20,5 +20,11 @@ const CriarPedidoSchema = Joi.object({
 });
 
 module.exports = {
-  "/pedido": CriarPedidoSchema
+  Validations: [
+    {
+      method: "POST",
+      route: "/pedido",
+      _object: CriarPedidoSchema
+    }
+  ]
 };
