@@ -9,6 +9,7 @@ const CriarPedidoSchema = Joi.object({
   descricao: Joi.string()
     .lowercase()
     .required(),
+  valor: Joi.number().required(),
   cpf: Joi.string()
     .lowercase()
     .min(11)

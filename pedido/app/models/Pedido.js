@@ -10,6 +10,10 @@ const PedidoSchema = new Mongoose.Schema({
     type: String,
     required: [true, "não pode ser vazio"]
   },
+  valor: {
+    type: Number,
+    required: [true, "não pode ser vazio"]
+  },
   cpf: {
     // TODO: aplicar propriedade match para validar apenas numeros e no formato de cpf correto
     type: String,

@@ -16,6 +16,7 @@ exports.criar = function(req, res, next) {
   let pedido = new Pedido();
   pedido.produto = body.produto;
   pedido.descricao = body.descricao;
+  pedido.valor = body.valor;
   pedido.cpf = body.cpf;
   pedido.cliente = body.cliente;
   pedido.status = AppConstants.STATUS_PEDIDO.PROGRAMADO;

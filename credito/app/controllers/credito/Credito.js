@@ -22,18 +22,9 @@ exports.buscar = function(req, res, next) {
 
       /* Formatamos registro para SQS */
       let mensagemFila = credito.formataRespostaJSON(compradorPossuiCredito);
-      if (compradorPossuiCredito) {
-        /* Inserir na fila SQS Disponibilidade de entrega */
-        SQS.inserirFilaDisponibilidadeEstoque(mensagemFila)
-          .then(function(_mensagemFila) {
-            return res
-              .status(200)
-              .send({ ...mensagemFila, _solicitacao: _mensagemFila });
-          })
-          .catch(next);
-      } else {
-        return res.status(200).send(mensagemFila);
-      }
+
+      /* Retorna formatado */
+      return res.status(200).send(mensagemFila);
     })
     .catch(next);
 };
