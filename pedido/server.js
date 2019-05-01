@@ -4,6 +4,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
 
+/* Disabilitar headers etag e x-powered-by */
+app.disable("etag").disable("etag");
+
 /* Configuração Express */
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));

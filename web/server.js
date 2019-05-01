@@ -1,6 +1,9 @@
 const app = require("./app/app");
 
+/* Disabilitar headers etag e x-powered-by */
+app.disable("etag").disable("etag");
+
 app.listen(3000, () => {
-    console.log("running on port 3000");
-    console.log("--------------------------");
+  console.log("Rodando");
+  console.log("--------------------------");
 });
